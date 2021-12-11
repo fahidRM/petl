@@ -65,7 +65,6 @@ def totex(  table, source,
     
             _write_beginning(stream, table_header, border_style, position, row_separator, line_terminator)
             for row in iterator:
-                print(row)
                 _write_row(stream, row, line_terminator)
             _write_ending(stream, caption, label, line_terminator)
         
@@ -122,6 +121,8 @@ def _escape_characters (text):
 
     if text is None:
         return ''
+    else:
+        text = str(text)
 
     for character in escape_with_other_character:
         text = text.replace(character, escape_with_other_character[character])
